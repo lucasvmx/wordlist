@@ -11,6 +11,10 @@ import os
 # Telefones móveis: http://www.anatel.gov.br/setorregulado/plano-de-numeracao-brasileiro?id=330
 # Telefones Fixos: http://www.anatel.gov.br/setorregulado/plano-de-numeracao-brasileiro?id=331
 
+if sys.version_info < (3,0):
+	print( 'Este script requer o python 3.x ')
+	quit(1)
+	
 current_year = datetime.datetime.now().year
 
 argumento_datas = '--datas'
@@ -169,7 +173,7 @@ def generate_dates(start_day, start_month, start_year):
 		log_error( 'Falha ao abrir o arquivo %s no modo escrita' % file_telefone_fixo)
 		quit(1)
 
-	for y in range(start_year, current_year):
+	for y in range(start_year, current_year + 1):
 		for m in range(start_month, 13):
 			for d in range(start_day, 32):
 				file.write( '%02d%02d%04d\n' % (d, m ,y))
