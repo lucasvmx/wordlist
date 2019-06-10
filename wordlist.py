@@ -9,12 +9,12 @@ import datetime
 import os
 
 # Telefones móveis: http://www.anatel.gov.br/setorregulado/plano-de-numeracao-brasileiro?id=330
-# Telefones Fixos: http://www.anatel.gov.br/setorregulado/plano-de-numeracao-brasileiro?id=331
+# Telefones Fixos: http://www.anatel.gov.br/setorregulado/plano-de-numeracao-brasileiro?id=331 
 
 if sys.version_info < (3,0):
 	print( 'Este script requer o python 3.x ')
 	quit(1)
-	
+
 current_year = datetime.datetime.now().year
 
 argumento_datas = '--datas'
@@ -194,6 +194,7 @@ datas = False
 celular = False
 fixo = False
 
+# Verifica a quantidade de argumentos
 qtd_argumentos = len(sys.argv)
 sistema_operacional = os.name
 
