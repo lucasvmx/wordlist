@@ -1,3 +1,9 @@
+'''gerador de numeros aleatórios'''
+
+
+
+
+
 import random, math
 
 def gerador():
@@ -14,5 +20,3 @@ gerador()
 
 while (gerador()) != (00000):
     gerador()
-#oi
-    
