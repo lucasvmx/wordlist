@@ -7,6 +7,7 @@
 import sys
 import datetime
 import os
+from RandomNum import NumerosDeTelefone
 
 # Telefones móveis: http://www.anatel.gov.br/setorregulado/plano-de-numeracao-brasileiro?id=330
 # Telefones Fixos: http://www.anatel.gov.br/setorregulado/plano-de-numeracao-brasileiro?id=331 
@@ -237,7 +238,15 @@ if datas:
 	
 if celular:
 	try:
-		generate_mobile_phone_wordlist()
+		Generator = NumerosDeTelefone()
+
+		# Obtém o prefixo
+		prefixo = int(input("Digite o prefixo: "))
+		
+		while Generator.gerador(prefixo) == False:
+			prefixo = int(input("Digite o prefixo: "))
+
+		##generate_mobile_phone_wordlist()
 	except KeyboardInterrupt:
 		log_alert( '\nScript interrompido ')
 		os.remove(file_celular)

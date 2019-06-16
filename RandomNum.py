@@ -8,31 +8,34 @@ CLARO 68,73,74,75,76,91,92,93,94
 TIM 69,79,80,81,82,83
 OI 84,85,86,87,88,89 '''
 
+class NumerosDeTelefone:
 
+    def validar_prefixo(self, num):
+        if num < 10 or num > 99:
+            return False
+        
+        return True
 
-class NumeroDeTelefone:
+    def gerador(self, prefixo):
+        
+        # Valida o prefixo
+        if not self.validar_prefixo(prefixo):
+            return False
 
-    def gerador(self):
-        arquivo = open("list.num", 'w')
+        arquivo = open("list.dat", 'w')
         nove = 9
-        prefixo = int(input("Entre com o prefixo da sua operadora com dois digitos:\n"))
 
-        while prefixo < 10 or prefixo > 99:
-            prefixo = int(input("Entre com o prefixo da sua operadora com dois digitos:\n"))
-
+        print( "Gerando números ...")
 
         for (x) in range(0,10000000):
-            print ("%d%d%06d"%(nove,prefixo,x))
-            arquivo.write("%d%d%06d\n"%(nove,prefixo,x))
+            arquivo.write("%d%02d%06d\n"%(nove,prefixo,x))
+        
+        print( "Números gerados com sucesso" )
+
+        # Fecha o arquivo
         arquivo.close()
 
-
-
-
-
-numero = NumeroDeTelefone()
-
-numero.gerador()
+        return True
 
 
 
