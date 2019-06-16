@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # Script para gerar wordlists
-# Autor: Lucas Vieira, Elyakim klettke
+# Autor: Lucas Vieira, Elyakim Klettke Brito
 # Testado no python 3.7.1 64-bit
 
 import sys
