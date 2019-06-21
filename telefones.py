@@ -1,12 +1,7 @@
-'''Gerador de números de telefone aleatórios'''
+# -*- coding: utf-8 -*-
 
-'''
-prefixos:
-
-VIVO 67,71,72,95,96,97,98,99
-CLARO 68,73,74,75,76,91,92,93,94
-TIM 69,79,80,81,82,83
-OI 84,85,86,87,88,89 '''
+# Gerador de números de telefone aleatórios'''
+# Autor: Elyakim Klettke Brito
 
 class NumerosDeTelefone:
 
@@ -16,7 +11,8 @@ class NumerosDeTelefone:
         
         return True
 
-    def gerador(self, prefixo):
+    # Gera todos os números de telefone possíveis a partir de um prefixo
+    def gerar(self, prefixo):
         
         # Valida o prefixo
         if not self.validar_prefixo(prefixo):
@@ -28,7 +24,7 @@ class NumerosDeTelefone:
         print( "Gerando números ...")
 
         for (x) in range(0,10000000):
-            arquivo.write("%d%02d%06d\n"%(nove,prefixo,x))
+            arquivo.write("%d%d%06d\n"%(nove,prefixo,x))
         
         print( "Números gerados com sucesso" )
 
