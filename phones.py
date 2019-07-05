@@ -3,7 +3,7 @@
 # Gerador de números de telefone aleatórios'''
 # Autor: Elyakim Klettke Brito
 
-class NumerosDeTelefone:
+class PhoneNumbers:
 
     def validar_prefixo(self, num):
         if num < 10 or num > 99:

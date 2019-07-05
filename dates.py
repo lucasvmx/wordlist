@@ -5,7 +5,7 @@
 
 import datetime
 import os
-from mensagens import log_info, log_error
+from messages import log_info, log_error
 
 # Verifica se o ano é bissexto
 def ano_bissexo(ano):
