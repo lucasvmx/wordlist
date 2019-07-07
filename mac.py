@@ -5,9 +5,37 @@
 
 class MacAddress:
 	
+	# Valida o endereço MAC especificado
+	def is_valid_mac(self, mac):
+		if len(mac) != 17:
+			return False
+
+		for item in mac:
+			if item != ":":
+				try:
+					int(item, 16)
+				except ValueError:
+					return False
+
+		return True
+
+	# Converte um endereço MAC para um número inteiro
+	def mac_address_to_number(self, mac):
+		mac_string = str(mac)
+		numbers = mac_string.split(":")
+		number_str = ""
+
+		for item in numbers:
+			number_str += item
+		
+		# Converte a string para um inteiro
+		number = int(number_str, 16)
+
+		return number
+
 	# Converte um número inteiro decimal para um endereço MAC no formato XX:XX:XX:XX:XX:XX
 	def number_to_mac_address(self, number):
-		string = "%.2X" % number
+		string = "%02X" % number
 		mac_string = ""
 		count = 0
 		double_dots = 0
@@ -18,7 +46,11 @@ class MacAddress:
 		if number < min_mac_address_length or number > max_mac_address_length:
 			print( "Error: Invalid decimal number:" )
 			return "FF:FF:FF:FF:FF:FF"
-				
+		
+		# Completa a string com zeros, se necessário
+		if len(string) % 2 != 0:
+			string += "0"
+
 		for ch in string:
 			if count == 2:
 				mac_string += ":"
@@ -32,17 +64,14 @@ class MacAddress:
 		# Termina de realizar a formatação
 		if double_dots < 5:
 			mac_string += ":"
-			count = 0
 			
 			new_limit = limit - double_dots - 1
 			
-			for i in range(0, new_limit + 1):
+			for count in range(0, new_limit + 1):
 				if count == new_limit:
 					mac_string += "00"
 				else:
 					mac_string += "00:"
-				
-				count = count + 1
 		
 		return mac_string
 		

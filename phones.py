@@ -12,16 +12,16 @@ class PhoneNumbers:
 		return True
 
 	# Gera todos os números de telefone possíveis a partir de um prefixo
-	def generate_phone_numbers(self, prefixo):
+	def generate_phone_numbers(self, prefix):
 		
 		# Valida o prefixo
-		if not self.validar_prefixo(prefixo):
+		if not self.validate_prefix(prefix):
 			return False
 		
 		nove = 9
 
 		for x in range(0, 10000000):
-			print("%d%d%06d\n" % (nove,prefixo,x))
+			print("%d%d%06d\n" % (nove,prefix,x))
 
 		return True
 
