@@ -20,10 +20,16 @@ class PhoneNumbers:
 		
 		nove = 9
 
-		for x in range(0, 10000000):
-			print("%d%d%06d\n" % (nove,prefix,x))
-
+		if prefix == 0:
+			for x in range(70000000, 99999999):
+				print("%08d\n" % x)
+		else:
+			for x in range(0, 10000000):
+				print("%d%d%06d\n" % (nove,prefix,x))
+		
 		return True
 
+if __name__ == "__main__":
+	print( 'This script should not run directly')
 
 

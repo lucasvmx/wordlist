@@ -44,7 +44,18 @@ def is_valid_date(dia, mes, ano):
 def generate_dates(start_day, start_month, start_year):
 	current_year = datetime.datetime.now().year 
 
+	if not is_valid_date(start_day, start_month, start_year):
+		return False
+
 	for y in range(start_year, current_year + 1):
 		for m in range(start_month, 13):
+			if m > start_month:
+				start_day = 1
+			
 			for d in range(start_day, 32):
-				print( '%02d%02d%04d\n' % (d, m ,y))
+				print( '%02d%02d%04d' % (d, m ,y))
+
+	return True
+
+if __name__ == "__main__":
+	print( 'This script should not run directly')

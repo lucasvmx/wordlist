@@ -87,3 +87,5 @@ class MacAddress:
 			MAC = self.number_to_mac_address(num)
 			print(MAC)
 		
+if __name__ == "__main__":
+	print( 'This script should not run directly')
